@@ -4,6 +4,8 @@ using Terraria.Audio;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
+using Microsoft.Xna.Framework;
 
 namespace slingin.Content.Items.Weapons
 {
@@ -18,30 +20,30 @@ namespace slingin.Content.Items.Weapons
 
 		public override void SetDefaults() {
 			// Common Properties
-			Item.rare = ItemRarityID.Pink; // Assign this item a rarity level of Pink
-			Item.value = Item.sellPrice(silver: 10); // The number and type of coins item can be sold for to an NPC
+			Item.rare = ItemRarityID.Green;
+			Item.value = Item.sellPrice(silver: 10);
 
 			// Use Properties
-			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
-			Item.useAnimation = 12; // The length of the item's use animation in ticks (60 ticks == 1 second.)
-			Item.useTime = 18; // The length of the item's use time in ticks (60 ticks == 1 second.)
-			Item.UseSound = SoundID.Item1; // The sound that this item plays when used.
-			Item.autoReuse = true; // Allows the player to hold click to automatically use the item again. Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.useAnimation = 12;
+			Item.useTime = 24;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 
 			// Weapon Properties
 			Item.damage = 5;
-			Item.knockBack = 6.5f;
-			Item.noUseGraphic = true; // When true, the item's sprite will not be visible while the item is in use. This is true because the spear projectile is what's shown so we do not want to show the spear sprite as well.
+			Item.knockBack = 2.5f;
+			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
-			Item.noMelee = true; // Allows the item's animation to do damage. This is important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
+			Item.noMelee = true;
 
 			// Projectile Properties
-			Item.shootSpeed = 13.7f; // The speed of the projectile measured in pixels per frame.
-			Item.shoot = ModContent.ProjectileType<Projectiles.EnvyProjectile>(); // The projectile that is fired from this weapon
+			Item.shootSpeed = 10.7f;
+			Item.shoot = ModContent.ProjectileType<Projectiles.EnvyProjectile>();
 		}
 
 		//public override bool CanUseItem(Player player) {
-		//	// Ensures no more than one spear can be thrown out, use this when using autoReuse
+		//	// Ensures no more than one disc can be thrown out, use this when using autoReuse
 		//	return player.ownedProjectileCounts[Item.shoot] < 1;
 		//}
 
@@ -53,7 +55,7 @@ namespace slingin.Content.Items.Weapons
 			SimplePlayer player2 = Main.LocalPlayer.GetModPlayer<SimplePlayer>();
 			player2.AddThrow();
 			Random rnd = new Random();
-			if (rnd.Next(10000) > 9995)
+			if (rnd.Next(3000) == 0)
             {
 				Item.stack = 0;
 				Main.NewText("Shit, did you see where that went?", 63, 255, 63);
@@ -61,10 +63,11 @@ namespace slingin.Content.Items.Weapons
 			return null;
 		}
 
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
 			CreateRecipe()
-				//.AddIngredient(ItemID.DirtBlock, 0)
+				.AddTile(TileID.Anvils)
+				.AddRecipeGroup(RecipeGroupID.IronBar, 10)
+				.AddCondition(NetworkText.FromKey("RecipeConditions.hasDisc"), recipe => Main.LocalPlayer.GetModPlayer<SimplePlayer>().hasDisc)
 				.Register();
 		}
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)

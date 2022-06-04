@@ -1,0 +1,7 @@
+Mods: {
+	slingin: {
+		RecipeConditions: {
+			hasDisc: Have or had disc(s)
+		}
+	}
+}
