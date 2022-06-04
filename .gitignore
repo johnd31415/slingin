@@ -1,0 +1,5 @@
+*.sln
+.git
+.vs
+bin
+obj
