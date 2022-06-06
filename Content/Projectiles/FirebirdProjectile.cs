@@ -9,11 +9,11 @@ using Terraria.ModLoader;
 
 namespace slingin.Content.Projectiles 
 {
-    public class EnvyProjectile : ModProjectile
+    public class FirebirdProjectile : ModProjectile
     {
         public override void SetDefaults()
         {
-            Projectile.penetrate = 1;
+            Projectile.penetrate = 3;
             Projectile.width = 2;
             Projectile.height = 20;
             Projectile.aiStyle = 0;//We're using our own defined below
@@ -28,7 +28,7 @@ namespace slingin.Content.Projectiles
             Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
         }
-        public override void AI()
+        public override void AI()//TODO
         {
             float velXMult = 0.98f;
             float velYMult = 0.98f;
