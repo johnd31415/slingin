@@ -42,11 +42,6 @@ namespace slingin.Content.Items.Weapons
 			Item.shoot = ModContent.ProjectileType<Projectiles.EnvyProjectile>();
 		}
 
-		//public override bool CanUseItem(Player player) {
-		//	// Ensures no more than one disc can be thrown out, use this when using autoReuse
-		//	return player.ownedProjectileCounts[Item.shoot] < 1;
-		//}
-
 		public override bool? UseItem(Player player) {
 			// Because we're skipping sound playback on use animation start, we have to play it ourselves whenever the item is actually used.
 			if (!Main.dedServ && Item.UseSound.HasValue) {
@@ -55,7 +50,7 @@ namespace slingin.Content.Items.Weapons
 			SimplePlayer player2 = Main.LocalPlayer.GetModPlayer<SimplePlayer>();
 			player2.AddThrow();
 			Random rnd = new Random();
-			if (rnd.Next(3000) == 0)
+			if (rnd.Next(3000) == 0) //TODO accessory/hold item in inv/do something to negate this effect
             {
 				Item.stack = 0;
 				Main.NewText("Shit, did you see where that went?", 63, 255, 63);
@@ -75,6 +70,10 @@ namespace slingin.Content.Items.Weapons
 			int x = Main.LocalPlayer.GetModPlayer<SimplePlayer>().currentThrows;
 			damage.Base += (20 * x) / (x + 1000);
 		}
-
+		public override bool OnPickup(Player player)
+        {
+			Main.LocalPlayer.GetModPlayer<SimplePlayer>().hasDisc = true;
+            return true;
+        }
 	}
 }

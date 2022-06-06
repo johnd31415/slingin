@@ -16,6 +16,7 @@ namespace slingin.Content
     {
         public int currentThrows = 0;
         public bool hasDisc = false;
+        public bool wantsToSeeDumbMessages = true;
 
         public override void PreSavePlayer()
         {
@@ -31,6 +32,7 @@ namespace slingin.Content
             {
                 tag.Set("throws", currentThrows, true);
                 tag.Set("hasDisc", hasDisc, true);
+                tag.Set("chatMessages", wantsToSeeDumbMessages, true);
             }
             catch
             {
@@ -43,6 +45,7 @@ namespace slingin.Content
             {
                 currentThrows = tag.GetInt("throws");
                 hasDisc = tag.GetBool("hasDisc");
+                wantsToSeeDumbMessages = tag.GetBool("chatMessages");
             }
             catch
             {
@@ -52,7 +55,7 @@ namespace slingin.Content
         public void AddThrow()
         {
             currentThrows += 1;
-            if (currentThrows % 1000 == 0)//TODO chat command to disable these messages
+            if (currentThrows % 1000 == 0 && Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages == true)
             {
                 Main.NewText("Damn son, " + currentThrows + " throws! You must be gitting gud", 63, 255, 63);
             }
