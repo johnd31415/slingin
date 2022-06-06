@@ -7,10 +7,15 @@ Attempt at disc golf weapons in terraria. WIP
 - Sprites
 - Balance (damage/recipes are currently very off the cuff)
 
-## More lofty goals:
-- Custom projectile AI
+## More lofty and/or not thought out goals:
 - Animations/sound effects
+- Playable Disc golf with baskets
 - NPC for KC?
+- Enemies/Bosses?
+- Accessories?
 
-## Credits:  
-johnd31415
+## Credits:
+- johnd31415 - Dev and sprites
+- The internet - Dev assistance
+- Disc golf - Inspiration
+- Bacon
