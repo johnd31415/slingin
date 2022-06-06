@@ -16,12 +16,11 @@ namespace slingin.Content.Projectiles
             Projectile.penetrate = 1;
             Projectile.width = 2;
             Projectile.height = 20;
-            Projectile.aiStyle = 0;
+            Projectile.aiStyle = 0;//We're using our own defined below
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.timeLeft = 600;
             Projectile.direction = 0;
-            //AIType = ProjectileID.WoodenArrowFriendly;
         }
         public override void Kill(int timeLeft)
         {
@@ -31,18 +30,20 @@ namespace slingin.Content.Projectiles
         }
         public override void AI()
         {
-            //Projectile.Distance();
-            float velXMult = 0.95f;
+            float velXMult = 0.98f;
             Projectile.velocity.X *= velXMult;
             float velYDec = 0.15f;
-            //Main.NewText("X:" + Projectile.velocity.X + " Y:" + Projectile.velocity.Y, 63, 255, 63);
-            if (Math.Abs(Projectile.velocity.X) < 5f)
+            //Main.NewText("" + Projectile.timeLeft, 63, 255, 63);
+            if (Math.Abs(Projectile.velocity.X) < 3)
             {
                 Projectile.velocity.Y += velYDec;
             }
+            else if (Projectile.timeLeft < 585)
+            {
+                Projectile.velocity.Y = 0;
+            }
 
-            //float velRotation = Projectile.velocity.ToRotation();
-            Projectile.rotation = 0;//velRotation + MathHelper.ToRadians(90f);
+            Projectile.rotation = 0;//Keep the disc flat. TODO, tilt down as it drops?
         }
     }
 }

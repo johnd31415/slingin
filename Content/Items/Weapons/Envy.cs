@@ -38,7 +38,7 @@ namespace slingin.Content.Items.Weapons
 			Item.noMelee = true;
 
 			// Projectile Properties
-			Item.shootSpeed = 15.0f;
+			Item.shootSpeed = 12.0f;
 			Item.shoot = ModContent.ProjectileType<Projectiles.EnvyProjectile>();
 		}
 
