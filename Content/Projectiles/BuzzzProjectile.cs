@@ -9,11 +9,11 @@ using Terraria.ModLoader;
 
 namespace slingin.Content.Projectiles 
 {
-    public class EnvyProjectile : ModProjectile
+    public class BuzzzProjectile : ModProjectile
     {
         public override void SetDefaults()
         {
-            Projectile.penetrate = 1;
+            Projectile.penetrate = 2;
             Projectile.width = 2;
             Projectile.height = 20;
             Projectile.aiStyle = 0;//We're using our own defined below
@@ -28,7 +28,7 @@ namespace slingin.Content.Projectiles
             Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
         }
-        public override void AI()
+        public override void AI()//TODO
         {
             float velXMult = 0.98f;
             float velYMult = 0.98f;
@@ -42,7 +42,7 @@ namespace slingin.Content.Projectiles
                 Projectile.velocity.Y *= velYMult;//tempers Y velocity of discs thrown straight up
             }
 
-            if (Math.Abs(Projectile.velocity.X) < 3 || Projectile.timeLeft < 560 || Projectile.velocity.Y > 0)
+            if (Math.Abs(Projectile.velocity.X) < 3 || Projectile.timeLeft < 555 || Projectile.velocity.Y > 0)
             {
                 Projectile.velocity.Y += velYDec;
                 if(Projectile.velocity.X > 0)//tilt the disc as it falls

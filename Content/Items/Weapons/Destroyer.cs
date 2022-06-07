@@ -9,10 +9,10 @@ using Microsoft.Xna.Framework;
 
 namespace slingin.Content.Items.Weapons
 {
-	public class Envy : ModItem
+	public class Destroyer : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("I bet with some practice this thing could sail over them mountains!\nTry not to lose it...");
+			Tooltip.SetDefault("I bet with some practice this thing could sail over them mountains!\nTry not to lose it...");//TODO
 
 			ItemID.Sets.SkipsInitialUseSound[Item.type] = true; // This skips use animation-tied sound playback, so that we're able to make it be tied to use time instead in the UseItem() hook.
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -20,26 +20,27 @@ namespace slingin.Content.Items.Weapons
 
 		public override void SetDefaults() {
 			// Common Properties
-			Item.rare = ItemRarityID.Green;
-			Item.value = Item.sellPrice(silver: 10);
+			Item.rare = ItemRarityID.Red;
+			Item.value = Item.sellPrice(gold: 10);
 
 			// Use Properties
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 12;
-			Item.useTime = 24;
+			Item.useTime = 16;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 
 			// Weapon Properties
-			Item.damage = 5;
-			Item.knockBack = 2.5f;
+			Item.damage = 5;//TODO
+			Item.knockBack = 4f;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
+			Item.glowMask = 1;
 
 			// Projectile Properties
-			Item.shootSpeed = 12.0f;
-			Item.shoot = ModContent.ProjectileType<Projectiles.EnvyProjectile>();
+			Item.shootSpeed = 21.0f;//TODO
+			Item.shoot = ModContent.ProjectileType<Projectiles.DestroyerProjectile>();
 		}
 
 		public override bool? UseItem(Player player) {
@@ -60,14 +61,15 @@ namespace slingin.Content.Items.Weapons
 
 		public override void AddRecipes() {
 			CreateRecipe()
-				.AddTile(TileID.Anvils)
-				.AddRecipeGroup(RecipeGroupID.IronBar, 10)
+				.AddTile(TileID.LunarCraftingStation)
+				.AddIngredient<Firebird>(1)
+				.AddIngredient(ItemID.LunarBar, 10)
 				.AddCondition(NetworkText.FromKey("RecipeConditions.hasDisc"), recipe => Main.LocalPlayer.GetModPlayer<SimplePlayer>().hasDisc)
 				.Register();
 		}
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-			damage.Base += Main.LocalPlayer.GetModPlayer<SimplePlayer>().getDiscDamage(1);
+			damage.Base += Main.LocalPlayer.GetModPlayer<SimplePlayer>().getDiscDamage(4);
 		}
 		public override bool OnPickup(Player player)
         {
