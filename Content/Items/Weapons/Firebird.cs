@@ -31,14 +31,14 @@ namespace slingin.Content.Items.Weapons
 			Item.autoReuse = true;
 
 			// Weapon Properties
-			Item.damage = 5;//TODO
+			Item.damage = 5;
 			Item.knockBack = 3.5f;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
 
 			// Projectile Properties
-			Item.shootSpeed = 18.0f;//TODO
+			Item.shootSpeed = 18.0f;
 			Item.shoot = ModContent.ProjectileType<Projectiles.FirebirdProjectile>();
 		}
 

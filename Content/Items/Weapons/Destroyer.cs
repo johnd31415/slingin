@@ -31,7 +31,7 @@ namespace slingin.Content.Items.Weapons
 			Item.autoReuse = true;
 
 			// Weapon Properties
-			Item.damage = 5;//TODO
+			Item.damage = 5;
 			Item.knockBack = 4f;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
@@ -39,7 +39,7 @@ namespace slingin.Content.Items.Weapons
 			Item.glowMask = 1;
 
 			// Projectile Properties
-			Item.shootSpeed = 21.0f;//TODO
+			Item.shootSpeed = 21.0f;
 			Item.shoot = ModContent.ProjectileType<Projectiles.DestroyerProjectile>();
 		}
 

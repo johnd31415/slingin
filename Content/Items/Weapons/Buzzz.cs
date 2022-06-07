@@ -31,14 +31,14 @@ namespace slingin.Content.Items.Weapons
 			Item.autoReuse = true;
 
 			// Weapon Properties
-			Item.damage = 5;//TODO
+			Item.damage = 5;
 			Item.knockBack = 3f;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
 
 			// Projectile Properties
-			Item.shootSpeed = 15.0f;//TODO
+			Item.shootSpeed = 15.0f;
 			Item.shoot = ModContent.ProjectileType<Projectiles.BuzzzProjectile>();
 		}
 
