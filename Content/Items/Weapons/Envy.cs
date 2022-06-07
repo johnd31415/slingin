@@ -67,8 +67,7 @@ namespace slingin.Content.Items.Weapons
 		}
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-			int x = Main.LocalPlayer.GetModPlayer<SimplePlayer>().currentThrows;
-			damage.Base += (20 * x) / (x + 1000);
+			damage.Base += Main.LocalPlayer.GetModPlayer<SimplePlayer>().getDiscDamage(1);
 		}
 		public override bool OnPickup(Player player)
         {

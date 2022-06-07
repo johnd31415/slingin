@@ -42,7 +42,7 @@ namespace slingin.Content.Projectiles
                 Projectile.velocity.Y *= velYMult;//tempers Y velocity of discs thrown straight up
             }
 
-            if (Math.Abs(Projectile.velocity.X) < 3 || Projectile.timeLeft < 560 || Projectile.velocity.Y > 0)
+            if (Math.Abs(Projectile.velocity.X) < 3 || Projectile.timeLeft < 555 || Projectile.velocity.Y > 0)
             {
                 Projectile.velocity.Y += velYDec;
                 if(Projectile.velocity.X > 0)//tilt the disc as it falls

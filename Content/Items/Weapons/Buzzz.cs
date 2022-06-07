@@ -26,19 +26,19 @@ namespace slingin.Content.Items.Weapons
 			// Use Properties
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 12;
-			Item.useTime = 24;
+			Item.useTime = 22;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 
 			// Weapon Properties
 			Item.damage = 5;//TODO
-			Item.knockBack = 2.5f;
+			Item.knockBack = 3f;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
 
 			// Projectile Properties
-			Item.shootSpeed = 12.0f;//TODO
+			Item.shootSpeed = 15.0f;//TODO
 			Item.shoot = ModContent.ProjectileType<Projectiles.BuzzzProjectile>();
 		}
 
@@ -68,8 +68,7 @@ namespace slingin.Content.Items.Weapons
 		}
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-			int x = Main.LocalPlayer.GetModPlayer<SimplePlayer>().currentThrows;
-			damage.Base += (20 * x) / (x + 1000);
+			damage.Base += Main.LocalPlayer.GetModPlayer<SimplePlayer>().getDiscDamage(2);
 		}
 		public override bool OnPickup(Player player)
         {
