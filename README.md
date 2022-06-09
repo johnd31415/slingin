@@ -18,4 +18,3 @@ Attempt at disc golf weapons in terraria. WIP
 - adamabrey - ideas and code review
 - The internet - Dev assistance
 - Disc golf - Inspiration
-- Oxygen
