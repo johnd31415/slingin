@@ -1,3 +1,6 @@
-Does nothing right now.
+Adds disc golf discs as throwing weapons.
 
-Goal is set of disc golf discs as throwing weapons.
+Damage scales as you "practice" (read: throw the discs)
+
+Early WIP: 
+I make no promise of quality or balance.
