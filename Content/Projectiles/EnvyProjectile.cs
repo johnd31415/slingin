@@ -29,6 +29,7 @@ namespace slingin.Content.Projectiles
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
         }
 
+        //this variable is true when the disc is flying or will fly
         public bool isFlying;
         public override void AI()
         {
@@ -74,7 +75,7 @@ namespace slingin.Content.Projectiles
                     Projectile.rotation -= MathHelper.ToRadians(rotDeg);
                 }
             }
-            //trigger when flying
+            //trigger when flying or soon to be flying
             else
             {
                 //determine when the disc stops flying when it is flying
