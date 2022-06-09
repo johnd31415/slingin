@@ -47,7 +47,7 @@ namespace slingin.Content.Projectiles
             if (Projectile.timeLeft == 600)
             {
                 //i have it only when thrown up to not fly, i like the downwards throw "air bounce" thing at all angles
-                isFlying = (Math.Abs(Projectile.velocity.X) < 4.145 && Projectile.velocity.Y < 0) ? false : true;
+                isFlying = !(Math.Abs(Projectile.velocity.X) < 4.145 && Projectile.velocity.Y < 0);
             }
 
             //triggers when disc throw is not fit for flying or after flying is over
