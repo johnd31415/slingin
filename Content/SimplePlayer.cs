@@ -56,7 +56,7 @@ namespace slingin.Content
         public void AddThrow()
         {
             currentThrows += 1;
-            if (currentThrows % 1000 == 0 && Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages == true)
+            if (currentThrows % 1000 == 0 && Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages)
             {
                 Main.NewText("Damn son, " + currentThrows + " throws! You must be gitting gud", 63, 255, 63);
             }

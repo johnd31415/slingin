@@ -15,7 +15,7 @@ namespace slingin.Content
 
         public override void Action(CommandCaller caller, string input, string[] args)
         {
-            if (Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages == true)
+            if (Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages)
             {
                 Main.NewText("Okay I guess I'll stop", 255, 0, 63);
                 Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages = false;
