@@ -1,6 +1,6 @@
 displayName = slingin
 author = johnd31415
-version = 0.1
+version = 0.01
 hideCode = false
 hideResources = false
 includeSource = true
