@@ -74,7 +74,7 @@ namespace slingin.Content.Projectiles
                     Projectile.rotation -= MathHelper.ToRadians(rotDeg);
                 }
             }
-            //trigger when not flying
+            //trigger when flying
             else
             {
                 //determine when the disc stops flying when it is flying
