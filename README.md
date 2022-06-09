@@ -15,7 +15,7 @@ Attempt at disc golf weapons in terraria. WIP
 
 ## Credits:
 - johnd31415 - Dev and sprites
-- darkbum - ideas and code review
+- adamabrey - ideas and code review
 - The internet - Dev assistance
 - Disc golf - Inspiration
 - Oxygen
