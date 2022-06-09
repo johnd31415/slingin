@@ -53,7 +53,7 @@ namespace slingin.Content.Projectiles
             //triggers when disc throw is not fit for flying or after flying is over
             if (!isFlying)
             {
-                //this also creates a terminal velocity of 7.5 when falling which is approached logarithmically
+                //this also creates a terminal velocity of 7.5ish when falling which is approached logarithmically
                 //i think unintended but i actually like the way it looks more than just straight gravity
                 Projectile.velocity.Y *= velYMult; //tempers Y velocity of discs thrown straight up
 
@@ -86,7 +86,16 @@ namespace slingin.Content.Projectiles
                 else if (Projectile.timeLeft < 585) //make the disc fly when criteria is met
                 {
                     //made it not zero so the stop is less jarring
-                    Projectile.velocity.Y *= 0.75f;
+                    //throwing down needs to stop faster because of implicit gravity
+                    //feel free to modify these values until its as smooth as you want
+                    if (Projectile.velocity.Y < 0)
+                    {
+                        Projectile.velocity.Y *= 0.85f;
+                    }
+                    else
+                    {
+                        Projectile.velocity.Y *= 0.7f;
+                    }
                 }
             }
         }
