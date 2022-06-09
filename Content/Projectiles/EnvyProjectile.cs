@@ -59,5 +59,18 @@ namespace slingin.Content.Projectiles
                 Projectile.velocity.Y = 0;
             }
         }
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            float textX = Projectile.velocity.X;
+            if (true/*tile == Tiles.Basket?*/Collision.FindCollisionTile)
+            {
+
+            }
+            else
+            {
+
+            }
+            return true;
+        }
     }
 }

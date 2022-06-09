@@ -3,5 +3,8 @@ Mods: {
 		RecipeConditions: {
 			hasDisc: Have or had disc(s)
 		}
+		MapTooltips: {
+			Basket: Practice Basket
+		}
 	}
 }
