@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace slingin.Content
 {
@@ -22,6 +23,16 @@ namespace slingin.Content
                 }
             }
             return true;
-        }
+		}
+
+        public override void NearbyEffects(int x, int y, int type, bool closer)
+        {
+            if (type == ModContent.TileType<Content.Tiles.Basket>() && NPC.CountNPCS(ModContent.NPCType<Content.NPCs.BasketDummy>()) < 1)
+            {
+                Main.NewText("Spawn dummy i hope", 255, 0, 63);
+                NPC.NewNPC(Terraria.Entity.GetSource_None(), x, y, ModContent.NPCType<Content.NPCs.BasketDummy>());
+            }
+		}
+
     }
 }

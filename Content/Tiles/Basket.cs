@@ -19,17 +19,13 @@ namespace slingin.Content.Tiles
 		public override void SetStaticDefaults()
 		{
 			// Properties
+			Main.tileSolid[Type] = false;
+			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
-			//Main.tileNoAttach[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-			//TileID.Sets.HasOutlines[Type] = true;
-			//TileID.Sets.CanBeSatOnForNPCs[Type] = true; // Facilitates calling ModifySittingTargetInfo for NPCs
-			//TileID.Sets.CanBeSatOnForPlayers[Type] = true; // Facilitates calling ModifySittingTargetInfo for Players
+			//Main.
+
 			TileID.Sets.DisableSmartCursor[Type] = true;
-
-			//AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-
-			//AdjTiles = new int[] { TileID.Toilets }; // Condider adding TileID.Chairs to AdjTiles to mirror "(regular) Toilet" and "Golden Toilet" behavior for crafting stations
 
 			// Names
 			AddMapEntry(new Color(200, 200, 200), Language.GetText("MapTooltips.Basket"));
@@ -62,7 +58,7 @@ namespace slingin.Content.Tiles
 
 		public override bool RightClick(int i, int j)
 		{
-			Main.NewText("You right clicked the basket, nice", 200, 200, 200);
+			Main.NewText("You right clicked me, nice", 200, 200, 200);
 			return true;
 		}
 
