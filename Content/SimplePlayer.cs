@@ -7,7 +7,7 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 
 /*
- * Tracks total number of disc throws. Each disc weapon has a formula for adding damage based on this value
+ * Tracks a number of fields for the player that we use to determine various disc behavior
  */
 namespace slingin.Content
 {
@@ -17,13 +17,15 @@ namespace slingin.Content
         public bool hasDisc = false;
         public bool wantsToSeeDumbMessages = true;
 
+        public bool hasRetriever = false;
+
         public override void PreSavePlayer()
         {
 
         }
         
         /*
-         * Making sure everything saves and loads correctly.
+         * Save player data
          */
         public override void SaveData(TagCompound tag)
         {
@@ -31,6 +33,7 @@ namespace slingin.Content
             {
                 tag.Set("throws", currentThrows, true);
                 tag.Set("hasDisc", hasDisc, true);
+                tag.Set("hasRetriever", hasRetriever, true);
                 tag.Set("chatMessages", wantsToSeeDumbMessages, true);
             }
             catch
@@ -38,12 +41,16 @@ namespace slingin.Content
             }
         }
 
+        /*
+         * Load player data
+         */
         public override void LoadData(TagCompound tag)
         {
             try
             {
                 currentThrows = tag.GetInt("throws");
                 hasDisc = tag.GetBool("hasDisc");
+                hasRetriever = tag.GetBool("hasRetriever");
                 wantsToSeeDumbMessages = tag.GetBool("chatMessages");
             }
             catch
@@ -61,6 +68,16 @@ namespace slingin.Content
                 Main.NewText("Damn son, " + currentThrows + " throws! You must be gitting gud", 63, 255, 63);
             }
         }
+
+        /*
+         * Returns amount of damage to add to the disc based on currentThrows and discLevel. Called by each disc in ModifyWeaponDamage().
+         * 
+         * discLevel:
+         * 1 = putter
+         * 2 = mid
+         * 3 = fairway
+         * 4 = distance
+         */
         public int getDiscDamage(int discLevel)
         {
 

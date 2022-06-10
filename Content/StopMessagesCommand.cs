@@ -9,9 +9,9 @@ namespace slingin.Content
 {
 	public class StopMessagesCommand : ModCommand
 	{
-        public override string Command => "stopSlinginMessages";//throw new NotImplementedException();
+        public override string Command => "stopSlinginMessages";
 
-        public override CommandType Type => CommandType.Chat;//throw new NotImplementedException();
+        public override CommandType Type => CommandType.Chat;
 
         public override void Action(CommandCaller caller, string input, string[] args)
         {
@@ -25,7 +25,6 @@ namespace slingin.Content
                 Main.NewText("They were already off, now they're going back on. Suck it", 76, 153, 0);
                 Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages = true;
             }
-            //throw new NotImplementedException();
         }
     }
 }
