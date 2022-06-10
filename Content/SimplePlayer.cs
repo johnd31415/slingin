@@ -65,7 +65,7 @@ namespace slingin.Content
             currentThrows += 1;
             if (currentThrows % 1000 == 0 && Main.LocalPlayer.GetModPlayer<SimplePlayer>().wantsToSeeDumbMessages)
             {
-                Main.NewText("Damn son, " + currentThrows + " throws! You must be gitting gud", 63, 255, 63);
+                Main.NewText("Damn son, " + currentThrows + " good throws! You must be gitting gud", 63, 255, 63);
             }
         }
 
@@ -83,11 +83,11 @@ namespace slingin.Content
 
             if (discLevel > 3 && currentThrows > 8000)
             {
-                return (120 * currentThrows) / (currentThrows + 4000);
+                return (180 * currentThrows) / (currentThrows + 6000);
             }
             else if (discLevel > 2 && currentThrows > 4000)
             {
-                return (60 * currentThrows) / (currentThrows + 3000);
+                return (100 * currentThrows) / (currentThrows + 4000);
             }
             else if (discLevel > 1 && currentThrows > 2000)
             {

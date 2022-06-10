@@ -32,7 +32,7 @@ namespace slingin.Content.Items.Weapons
 
 			// Weapon Properties
 			Item.damage = 5;
-			Item.knockBack = 4f;
+			Item.knockBack = 3f;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
@@ -43,15 +43,17 @@ namespace slingin.Content.Items.Weapons
 			Item.shoot = ModContent.ProjectileType<Projectiles.DestroyerProjectile>();
 		}
 
+		/*
+		 * 1/10000 chance to lose disc on throw
+		 */
 		public override bool? UseItem(Player player) {
 			// Because we're skipping sound playback on use animation start, we have to play it ourselves whenever the item is actually used.
 			if (!Main.dedServ && Item.UseSound.HasValue) {
 				SoundEngine.PlaySound(Item.UseSound.Value, player.Center);
 			}
 			SimplePlayer player2 = Main.LocalPlayer.GetModPlayer<SimplePlayer>();
-			player2.AddThrow();
 			Random rnd = new Random();
-			if (!player2.hasRetriever && rnd.Next(3000) == 0) //TODO accessory/hold item in inv/do something to negate this effect
+			if (!player2.hasRetriever && rnd.Next(10000) == 0)
             {
 				Item.stack = 0;
 				Main.NewText("Shit, did you see where that went?", 63, 255, 63);

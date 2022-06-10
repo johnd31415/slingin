@@ -10,7 +10,7 @@ namespace slingin.Content
     {
         public override bool Drop(int i, int j, int type)
         {
-            if (!Main.LocalPlayer.GetModPlayer<SimplePlayer>().hasDisc && type == TileID.Trees)
+            if (type == TileID.Trees)
             {
                 Random rnd = new Random();
                 if (rnd.Next(1000) == 0)

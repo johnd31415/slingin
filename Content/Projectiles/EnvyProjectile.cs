@@ -29,6 +29,15 @@ namespace slingin.Content.Projectiles
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
         }
 
+        /*
+         * Add throw to SimplePlayer on hit
+         */
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            SimplePlayer player2 = Main.LocalPlayer.GetModPlayer<SimplePlayer>();
+            player2.AddThrow();
+        }
+
         //this variable is true when the disc is flying or will fly
         public bool isFlying;
         public override void AI()
